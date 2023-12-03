@@ -1,9 +1,10 @@
-version: "3.2"
+version: "3.8"
 
 services:
   db:
     build: .
     image: ghcr.io/tamugeoinnovation/mssqldocker
+    container_name: mssql
     environment:
       ACCEPT_EULA: Y
       SA_PASSWORD: ${SA_PASSWORD}
@@ -12,4 +13,8 @@ services:
       MSSQL_PASSWORD: ${MSSQL_PASSWORD}
     ports:
       - "1433:1433"
-    container_name: mssql
+    volumes:
+      - db:/var/opt/mssql
+
+volumes:
+  db:
