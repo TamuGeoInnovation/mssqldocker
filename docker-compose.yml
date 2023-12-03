@@ -1,15 +1,15 @@
-version: '3.2'
+version: "3.2"
 
 services:
   db:
     build: .
-    image: mcmoe/mssqldocker:v2017.CU30.0
+    image: ghcr.io/tamugeoinnovation/mssqldocker
     environment:
       ACCEPT_EULA: Y
-      SA_PASSWORD: 2astazeY
-      MSSQL_DB: dev
-      MSSQL_USER: Kobeissi
-      MSSQL_PASSWORD: 7ellowEl7akey
+      SA_PASSWORD: ${SA_PASSWORD}
+      MSSQL_DB: ${MSSQL_DB}
+      MSSQL_USER: ${MSSQL_USER}
+      MSSQL_PASSWORD: ${MSSQL_PASSWORD}
     ports:
       - "1433:1433"
-    container_name: mssqldev
+    container_name: mssql
